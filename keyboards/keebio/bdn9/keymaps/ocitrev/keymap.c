@@ -46,6 +46,8 @@ enum Aliases {
     /* shortcut in Microsoft PowerToys */
     kMuteCamera = LCTL(KC_F19),
     kMuteMic = LCTL(KC_F20),
+    /* Araxis Merge shortcut */
+    kResolve = LCTL(KC_K)
 };
 
 /* clang-format off */
@@ -53,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LAYER_DEFAULT] = LAYOUT(
         kTaskmgr,           KC_F13,         RGB_TOG,
         MO(LAYER_SETTINGS), kMuteCamera,    kMuteMic,
-        kMonitorPrev,       KC_F15,         kMonitorNext
+        kMonitorPrev,       kResolve,       kMonitorNext
     ),
     [LAYER_SETTINGS] = LAYOUT(
         QK_BOOT, KC_F16, _______,
@@ -65,6 +67,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
     int const layer = get_highest_layer(layer_state);
+
+    printf("index=%d, clockwise=%d\n", index, clockwise);
 
     switch (index) {
         /* Knob 1: Volume dn/up */
@@ -148,3 +152,12 @@ void rgb_matrix_indicators_user(void) {
     rgb_matrix_set_color(1, RGB_OFF);
     rgb_matrix_set_color(2, RGB_OFF);
 }
+
+#ifdef VIRTSER_ENABLE
+void virtser_recv(uint8_t c)
+{
+    printf("virtser_recv(%d)\n", c);
+}
+#else
+#error VIRTSER_ENABLE not enabled
+#endif
