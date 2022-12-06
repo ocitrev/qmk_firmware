@@ -124,7 +124,7 @@ static HSV const LayerColors[2] = {
     {HSV_RED},
 };
 
-void rgb_matrix_indicators_user(void) {
+bool rgb_matrix_indicators_user(void) {
     HSV color;
 
     switch (get_highest_layer(layer_state)) {
@@ -151,6 +151,14 @@ void rgb_matrix_indicators_user(void) {
     rgb_matrix_set_color(0, RGB_OFF);
     rgb_matrix_set_color(1, RGB_OFF);
     rgb_matrix_set_color(2, RGB_OFF);
+
+    return false;
+}
+
+void keyboard_post_init_user(void) {
+    rgb_matrix_enable_noeeprom();
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+    rgb_matrix_set_color_all(RGB_OFF);
 }
 
 #ifdef VIRTSER_ENABLE
