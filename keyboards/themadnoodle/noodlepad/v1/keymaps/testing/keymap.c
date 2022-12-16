@@ -2,20 +2,11 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    /* LAYER 0
-     * ,-----------------------.
-     * |   <<  |  MUTE |  >>   |  ENCODER - PRESS (MUTE) / HOLD (LAYER 2) / KNOB (VOLUME CONTROL)
-     * |-------+-------+-------|
-     * |  STOP |  PLAY | MEDIA |
-     * |-------+-------+-------|
-     * | CALC  | MAIL  | PC/FN |
-     * `-----------------------'
-     */
 
     [0] = LAYOUT_ortho_3x3(
-      KC_MPRV, LT(2, KC_MUTE), KC_MNXT, 
-      KC_MSTP, KC_MPLY, KC_MSEL,
-      KC_CALC, KC_MAIL, LT(1, KC_MYCM)
+      KC_8, KC_E, KC_7, 
+      KC_6, KC_5, KC_4,
+      KC_1, KC_2, KC_3
       ),
 
 
@@ -35,26 +26,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       RGB_SAI, RGB_SAD, KC_TRNS
       ),
 
-      
-    /* LAYER 2 (ENCODER)
-     * ,-----------------------.
-     * |       |       |       |  ENCODER - PRESS (NA) / KNOB (Arrow Left/Right)
-     * |-------+-------+-------|
-     * |       |       |       |
-     * |-------+-------+-------|
-     * |       |       |       |
-     * `-----------------------'
-     */
-    
-    [2] = LAYOUT_ortho_3x3(
-      KC_TRNS, KC_TRNS, KC_TRNS, 
-      KC_TRNS, KC_TRNS, KC_TRNS, 
-      KC_TRNS, KC_TRNS, KC_TRNS
-      )
-
 };
 
-void encoder_update_user(uint8_t index, bool clockwise) {
+bool encoder_update_user(uint8_t index, bool clockwise) {
     
   switch (get_highest_layer(layer_state)) {
       case 1:
@@ -73,11 +47,12 @@ void encoder_update_user(uint8_t index, bool clockwise) {
           break;
       default:
           if (clockwise) {
-              tap_code(KC_VOLU);
+              tap_code(KC_LBRC);
           } else {
-              tap_code(KC_VOLD);
+              tap_code(KC_RBRC);
           }
           break;
           
   }
+    return false;
 }
