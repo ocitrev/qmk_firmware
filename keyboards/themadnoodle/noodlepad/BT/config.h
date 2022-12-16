@@ -24,23 +24,29 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x1701
 #define DEVICE_VER      0x0002
 #define MANUFACTURER    The Mad Noodle
-#define PRODUCT         NCC1701KB v2
-#define DESCRIPTION     NCC1701KB v2 macro keypad
+#define PRODUCT         Noodle Pad v2 BT
 
 /* key matrix size */
 #define MATRIX_ROWS 3
 #define MATRIX_COLS 3
 
-/* NCC-1701-KB PCB default pin-out */
-#define MATRIX_ROW_PINS { D4, D6, D7 }
-#define MATRIX_COL_PINS { B4, B5, B6 }
+/* Noodlepad V2 PCB default pin-out */
+#define MATRIX_ROW_PINS { F1, D6, D7 }
+#define MATRIX_COL_PINS { F0, B5, B6 }
 #define UNUSED_PINS
 
 /* RGB BackLight */
 #define RGB_DI_PIN B7
 #define RGBLED_NUM 4
 #define RGBLIGHT_SLEEP
-#define RGBLIGHT_ANIMATIONS
+//#define RGBLIGHT_ANIMATIONS
+#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
+#define RGBLIGHT_EFFECT_BREATHING
+
+/*RGB Defaults*/
+#define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RAINBOW_SWIRL
+#define RGBLIGHT_DEFAULT_SPD 3
+
 /*Encoders */
 #define ENCODERS_PAD_A { D0 }
 #define ENCODERS_PAD_B { D1 }
@@ -48,3 +54,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION ROW2COL
+
+/*BLE*/
+#define AdafruitBleResetPin D4
+#define AdafruitBleCSPin    B4
+#define AdafruitBleIRQPin   E6
