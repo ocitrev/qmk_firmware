@@ -42,10 +42,10 @@ enum Aliases {
     /* Windows shortcut */
     kMonitorPrev = LCTL(LWIN(KC_LEFT)),
     kMonitorNext = LCTL(LWIN(KC_RIGHT)),
-    kTaskmgr = LCTL(LSFT(KC_ESC)),
+    kTaskmgr     = LCTL(LSFT(KC_ESC)),
     /* shortcut in Microsoft PowerToys */
     kMuteCamera = LCTL(KC_F19),
-    kMuteMic = LCTL(KC_F20),
+    kMuteMic    = LCTL(KC_F20),
     /* Araxis Merge shortcut */
     kResolve = LCTL(KC_K)
 };
@@ -157,15 +157,13 @@ bool rgb_matrix_indicators_user(void) {
 
 void keyboard_post_init_user(void) {
     rgb_matrix_enable_noeeprom();
-    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-    rgb_matrix_set_color_all(RGB_OFF);
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_DEFAULT_MODE);
 }
 
 #ifdef VIRTSER_ENABLE
-void virtser_recv(uint8_t c)
-{
-    printf("virtser_recv(%d)\n", c);
+void virtser_recv(uint8_t c) {
+    printf("virtser_recv(%c)\n", c);
 }
 #else
-#error VIRTSER_ENABLE not enabled
+#    error VIRTSER_ENABLE not enabled
 #endif
