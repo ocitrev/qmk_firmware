@@ -1,7 +1,13 @@
 {
   "keyboard_name": "Udon13",
+  "manufacturer": "The Mad Noodle",
   "url": "instagram.com/the_mad_noodle",
   "maintainer": "The-Mad-Noodle",
+  "usb": {
+    "pid": "0x1701",
+    "vid": "0xFEED",
+    "device_version": "1.0.0"
+  },
   "width": 4,
   "height": 4,
   "layouts": {
