@@ -19,14 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "config_common.h"
 
-/* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x1701
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    The Mad Noodle
-#define PRODUCT         Udon13
-#define DESCRIPTION     Udon13 macro keypad
-
 /* key matrix size */
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 4
@@ -34,16 +26,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* NCC-1701-KB PCB default pin-out */
 #define MATRIX_ROW_PINS { F7, F1, D6, D7 }
 #define MATRIX_COL_PINS { F0, F5, F4, F6 }
-#define UNUSED_PINS
 
 /* RGB BackLight */
 #define RGB_DI_PIN B7
 #define RGBLED_NUM 6
 #define RGBLIGHT_SLEEP
-#define RGBLIGHT_ANIMATIONS
 
 /*RGB Defaults*/
+#ifdef RGBLIGHT_MODE_RAINBOW_SWIRL
 #define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RAINBOW_SWIRL
+#endif
 #define RGBLIGHT_DEFAULT_SPD 3
 
 /*Encoders */
