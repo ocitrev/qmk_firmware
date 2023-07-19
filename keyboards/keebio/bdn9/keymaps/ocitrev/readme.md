@@ -38,4 +38,3 @@ qmk setup -H "$USERPROFILE/source/repos/qmk_firmware" ocitrev/qmk_firmware
 qmk config user.keymap=ocitrev
 qmk config user.keyboard=keebio/bdn9/rev2
 ```
-
