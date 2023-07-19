@@ -21,32 +21,32 @@ enum Aliases {
 };
 
 /* LAYER Main
- *                                       ,----------------.
- *                                       |  Task Manager  |  ENCODER - KNOB: Volume Control
- * ,-------------------------------------+----------------|
- * |  RBG Layer    |       | Mute Camera | Mute Mic       |
- * |---------------+-------+-------------+----------------|
- * |               |       |   CTRL+K    |                |
- * |---------------+-------+-------------+----------------|
- * | CTRL+WIN+LEFT |       |             | CTRL+WIN+RIGHT |
- * `------------------------------------------------------'
+ *                                                       ,---------------------.
+ *                       ENCODER - KNOB: Volume Control  | KC_MEDIA_PLAY_PAUSE |
+ * ,-----------------------------------------------------+---------------------|
+ * |  RBG Layer    |   Task Manager   |   Mute Camera    |       Mute Mic      |
+ * |---------------+------------------+------------------+---------------------|
+ * |               |                  |   CTRL+K         |                     |
+ * |---------------+------------------+------------------+---------------------|
+ * | CTRL+WIN+LEFT | Media Prev Track | Media Next Track | CTRL+WIN+RIGHT      |
+ * `---------------------------------------------------------------------------'
  */
 
 /* clang-format off */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT_ortho_3x4(
-        kTaskmgr,
-        TO(_RGB),       KC_NO,  kMuteCamera,    kMuteMic,
-        KC_NO,          KC_NO,  kResolve,       KC_NO,
-        kMonitorPrev,   KC_NO,  KC_NO,          kMonitorNext
+        KC_MEDIA_PLAY_PAUSE,
+        TO(_RGB),       kTaskmgr,               kMuteCamera,            kMuteMic,
+        KC_NO,          KC_NO,                  kResolve,               KC_NO,
+        kMonitorPrev,   KC_MEDIA_PREV_TRACK,    KC_MEDIA_NEXT_TRACK,    kMonitorNext
     ),
 
     [_RGB] = LAYOUT_ortho_3x4(
         RGB_TOG,
-        TO(_FN), RGB_MODE_XMAS, RGB_MODE_KNIGHT, RGB_MODE_PLAIN,
-        RGB_MODE_FORWARD, RGB_SPI, RGB_SAI, RGB_VAI,
-        RGB_MODE_REVERSE, RGB_SPD, RGB_SAD, RGB_VAD
+        TO(_FN),            RGB_MODE_XMAS,  RGB_MODE_KNIGHT,    RGB_MODE_PLAIN,
+        RGB_MODE_FORWARD,   RGB_SPI,        RGB_SAI,            RGB_VAI,
+        RGB_MODE_REVERSE,   RGB_SPD,        RGB_SAD,            RGB_VAD
     ),
 
     [_FN] = LAYOUT_ortho_3x4(
