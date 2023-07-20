@@ -17,8 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "config_common.h"
-
 /* key matrix size */
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 4
@@ -28,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COL_PINS { F0, F5, F4, F6 }
 
 /* RGB BackLight */
-#define RGB_DI_PIN B7
+#define WS2812_DI_PIN B7
 #define RGBLED_NUM 6
 #define RGBLIGHT_SLEEP
 
